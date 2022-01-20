@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #detail {
+            height: 10rem;
+            width: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Develop execution stack for your pizza order -->
+
+    <input type="text" id="pizza-base" placeholder="Enter Pizza Base" required>
+
+    <br>
+    <p>Enter Veg or non veg</p>
+    <label for="veg">VEG</label>
+    <input type="radio" name="veg" value="veg">
+    <label for="nonveg">NON-VEG</label>
+    <input type="radio" name="veg" value="nonveg">
+
+    <br><br>
+    <label for="suppliments">Enter Suppliments</label>
+    <input type="text" id="suppliments" name="suppliments" required>
+    <br>
+    <button id="order">Order Pizza</button>
+
+    <br><br><br><br>
+    <div id="details">Order Details: <br></div>
+    <div id="detail"></div> <br>
+
+    <input type="date" name="">
+</body>
+
+<script>
+    document.getElementById('order').addEventListener('click', order);
+    let orderDetail = document.getElementById('detail');
+
+
+    function order() {
+        orderDetail.innerHTML += "<br>"
+        orderDetail.innerHTML += document.querySelector('#pizza-base').value;
+        orderDetail.innerHTML += "<br>"
+        orderOfsuppl();
+    }
+
+    function orderOfsuppl() {
+        orderDetail.innerHTML += document.querySelector('#suppliments').value;
+        orderOfveg();
+    }
+
+    function orderOfveg() {
+        orderDetail.innerHTML += document.querySelector('input[name="veg"]:checked').value;
+    }
+</script>
+
+</html>
