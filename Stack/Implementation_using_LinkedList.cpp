@@ -9,7 +9,6 @@ struct LL
 struct stack
 {
     LL *top;
-
     int size;
 };
 
