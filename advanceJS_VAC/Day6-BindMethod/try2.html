@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="guardarNumeros()">
+        <p>Please insert the items</p>
+        <input type="text" id="box">
+        <input type="submit" value="Submit">
+    </form>
+    <div class="output"></div>
+</body>
+
+</html>
+<script>
+    'use strict'
+
+    var items = [];
+
+    function guardarNumeros() {
+        boxvalue = document.getElementById('box').value;
+        items.push(boxvalue);
+        console.log(items);
+        return false;
+    }
+    // let myMap = new Map();
+
+    // let district = new Array();
+    // myMap.set("cg", district);
+
+    // let out = document.querySelector(".output");
+    // let inp = document.getElementById('d');
+    // document.getElementById('add').addEventListener('click', function() {
+    //     district.push(inp).value;
+    //     out.innerHTML += inp.value;
+    // });
+
+    // // let populate = () => {
+    // //         district.add(document.getElementById('d').value);
+    // //     }
+    // // ;
+    // // district.add("raipur");
+    // // district.add("jashpur");
+    // // district.add("bastar");
+
+    // console.log(myMap)
+    // console.log(district)
+</script>

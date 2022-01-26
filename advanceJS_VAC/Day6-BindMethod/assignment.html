@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="d">
+    <button id="add">Add</button>
+    <div class="output"></div>
+
+    <div style="float:right" class="result">Result : <br></div>
+</body>
+
+</html>
+<script>
+    'use strict'
+    let myMap = new Map();
+
+    let district = new Set();
+    myMap.set("cg", district);
+
+    let out = document.querySelector(".output");
+    let inp = document.getElementById('d');
+    document.getElementById('add').addEventListener('click', function() {
+        district.add(inp.value);
+        out.innerHTML += `${inp.value}<br>`;
+    });
+
+    // let populate = () => {
+    //         district.add(document.getElementById('d').value);
+    //     }
+
+    // district.add("raipur");
+    // district.add("jashpur");
+    // district.add("bastar");
+
+    console.log(myMap)
+    console.log(district)
+
+    let res = document.querySelector(".result");
+    res.addEventListener('click', result);
+
+    function result() {
+        for (let role of district.values()) {
+            console.log(role);
+        }
+        res.innerHTML += `${district.values()}<br>`;
+    }
+</script>

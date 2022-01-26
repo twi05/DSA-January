@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'use strict'
+    //Array methods
+    //Filter Method
+    //Reduce Method
+    //Chaining of map filter and reduce
+    //Find Method
+    let originalArray = [1, 2, 3, 6, -58, 5, 69, 8, 95, 6, 5, 8];
+    console.log(originalArray);
+
+
+
+    // ---------------------------------------------------------
+    const result = originalArray.find(ele => ele > 10);
+    console.log(result)
+
+
+
+    // ---------------------------------------------------------
+    // let outputVal = originalArray.filter(ele => ele % 2 === 0).filter(ele => ele > 0).map(ele => ele + 50).reduce((acc, ele) => acc + ele, 1000);
+
+    // console.log(outputVal)
+
+
+    // ---------------------------------------------------------
+    // const newArray = [];
+    // let evenArray = [];
+    // let oddArray = [];
+
+    // let finalVal = 0;
+
+    // for (const ele of originalArray) {
+    //     finalVal += ele;
+    // }
+    // console.log(finalVal);
+
+    // const newVal = originalArray.reduce(function(acc, ele) {
+    //     return acc + ele;
+    // }, 0)
+    // console.log(newVal)
+
+    // ---------------------------------------------------------
+
+
+    // for (const ele of originalArray) {
+    //     if (ele % 2 === 0) {
+    //         evenArray.push(ele);
+    //     } else {
+    //         oddArray.push(ele);
+    //     }
+    // }
+
+
+    // evenArray = originalArray.filter(function(ele, i, orgArr) {
+    //     return ele % 2 === 0
+    // });
+    // oddArray = originalArray.filter(function(ele, i, orgArr) {
+    //     return ele % 2 != 0
+    // });
+    // console.log(evenArray);
+    // console.log(oddArray);
+
+
+    // const evenArrayArrow = originalArray.filter(ele => ele % 2 === 0);
+    // const oddArrayArrow = originalArray.filter(ele => ele % 2 != 0);
+
+    // console.log(evenArrayArrow);
+    // console.log(oddArrayArrow);
+
+    // for (const ele of originalArray) {
+    //     newArray.push(ele + 3);
+    // }
+    // console.log(newArray);
+    // ---------------------------------------------------------
+    // const newArrayMap = originalArray.map(function(ele, i, orgArr) {
+    //     return ele + 3;
+    // })
+    // console.log(newArrayMap);
+
+    // const newArrow = originalArray.map(ele => ele + 3);
+    // console.log(newArrow);
+</script>
+
+</html>

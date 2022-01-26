@@ -17,13 +17,39 @@ let stud3 = {
 };
 
 let MyMap = new Map([
-  ["1", "stud1"],
+  [1, stud1],
   [2, stud2],
   [3, stud3],
 ]);
 
+console.log(document.querySelector('#fname').val);
+document.querySelector('#submit').addEventListener('click', submit);
 
-console.log(MyMap.forEach(printTwo))
+function submit(){
+  MyMap.set(4,stud3);
+  displayMovies(MyMap);
+} 
+
+
+
+let tablediv  = document.querySelector('.data');
+
+function displayMovies(MyMap){
+  let table = '<table>';
+  table += '<tr><th>FirstName</th><th>LastName</th><th>Address</th></tr>';
+  MyMap.forEach((movie) => {
+      table = table + '<tr>',
+      table = table + '<td>'  +`${movie.firstname}` + '</td>',
+      table = table + '<td>' + `${movie.lastname}` + '</td>',
+      table = table + '<td>' +`${movie.address}` + '</td>'
+   });  
+   table += "</table>"
+  tablediv.innerHTML = table;
+}
+
+
+
+// console.log(MyMap.forEach(printTwo))
 
 // MyMap.get(4);
 // console.log(MyMap.has(4));
