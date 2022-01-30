@@ -31,17 +31,17 @@ function submit(){
 } 
 
 
-
 let tablediv  = document.querySelector('.data');
 
 function displayMovies(MyMap){
   let table = '<table>';
   table += '<tr><th>FirstName</th><th>LastName</th><th>Address</th></tr>';
   MyMap.forEach((movie) => {
-      table = table + '<tr>',
-      table = table + '<td>'  +`${movie.firstname}` + '</td>',
-      table = table + '<td>' + `${movie.lastname}` + '</td>',
-      table = table + '<td>' +`${movie.address}` + '</td>'
+      table +=  '<tr>',
+      table +=  '<td>'  +`${movie.firstname}` + '</td>',
+      table +=  '<td>' + `${movie.lastname}` + '</td>',
+      table +=  '<td>' +`${movie.address}` + '</td>',
+      table +=  '</tr>'
    });  
    table += "</table>"
   tablediv.innerHTML = table;

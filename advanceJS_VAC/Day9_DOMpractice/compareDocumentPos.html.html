@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Foo</h1>
+    </div>
+    <h2 class="subtitle">Bar</h2>
+
+    <script>
+        const container = document.querySelector('.container');
+        const h1 = document.querySelector('h1');
+        const h2 = document.querySelector('h2');
+        //  20: h1 is contained by container and follows container
+        console.log(container.compareDocumentPosition(h1));
+        // 10: container contains h1 and precedes it
+        console.log(h1.compareDocumentPosition(container));
+        // 4: h2 follows h1
+        console.log(h1.compareDocumentPosition(h2));
+        // 2: h1 precedes h2
+        console.log(h2.compareDocumentPosition(h1));
+    </script>
+</body>
+
+</html>
+<!-- 
+/*The value returned from compareDocumentPosition is an integer whose bits represent the relationship between the nodes, relative to the argument given to this method.
+So considering the syntax node.compareDocumentPostion(otherNode) the meaning of the returned value is:
+1: the nodes are not part of the same document
+2: otherNode precedes node
+4: otherNode follows node
+8: otherNode contains node
+16: otherNode is contained by node
+More than one of the bits may be set so that is why in the example above container.compareDocumenPosition(h1) returns 20 where you might expect 16 since h1 is contained by container. But h1 also follows container (4) so the resulting value is 16 + 4 = 20.*/ -->

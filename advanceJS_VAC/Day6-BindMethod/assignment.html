@@ -10,7 +10,9 @@
 
 <body>
 
-    <input type="text" id="d">
+    statename CG
+    <input type="text" placeholder="Write Distict name" id="d">
+
     <button id="add">Add</button>
     <div class="output"></div>
 
@@ -46,10 +48,12 @@
     let res = document.querySelector(".result");
     res.addEventListener('click', result);
 
+    var setIter = district.values();
+
     function result() {
         for (let role of district.values()) {
             console.log(role);
         }
-        res.innerHTML += `${district.values()}<br>`;
+        res.innerHTML += `${setIter.next().value}<br>`;
     }
 </script>

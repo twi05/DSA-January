@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=qq, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="thapa">Thapa</p>
+    <p class="welcome">Technical1</p>
+    <p class="welcome">Technical2</p>
+    <p class="welcome">Technical3</p>
+
+    <ul>
+        <li>LIke</li>
+        <li>Share</li>
+        <li>Subscribe</li>
+    </ul>
+</body>
+
+<script>
+    'use strict'
+
+    var child = document.body.children;
+    console.log(child);
+
+    //add a new child in a body
+    var para = document.createElement("p");
+    var textNode = document.createTextNode("this is a new para");
+
+    para.appendChild(textNode);
+    document.body.appendChild(para);
+    console.log(para);
+
+    // access first child and last child 
+    var list = document.querySelector('ul');
+    console.log(list)
+
+    console.log(list.firstChild)
+</script>
+
+</html>
