@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'use strict'
+    class User {
+        firstName;
+        lastName;
+        birthYear;
+
+        constructor(firstName, lastName, birthYear) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthYear = birthYear;
+        }
+
+        calcAge() {
+            return 2022 - this.birthYear;
+        }
+    }
+
+    class Student extends User {
+        constructor(firstName, lastName, birthYear) {
+            super(firstName, lastName, birthYear);
+
+        }
+    }
+
+    const student1 = new Student("Twi", "P", 2001);
+    console.log(student1);
+    console.log(student1.calcAge());
+</script>
+<!-- 
+<script defer>
+    'use strict'
+    class User {
+        constructor(fname, lname, phone) {
+            this.firstname = "name";
+            this.lastname = "surname";
+            this.phone = phone;
+        }
+        getDetails() {
+            return (`Name of user is ${this.firstname}`)
+        }
+    }
+    class Employee extends User {
+        constructor(fname, lname, phone) {
+
+        }
+    }
+</script> -->
+
+</html>

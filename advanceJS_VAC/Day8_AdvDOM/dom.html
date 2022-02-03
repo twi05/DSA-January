@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 
 <body>
@@ -17,11 +18,20 @@
 
 
     const bodyElement = document.body;
+    bodyElement.style.background = "rgb(162, 117, 246)";
+    bodyElement.style.background = "radial-gradient(circle, rgba(162, 117, 246, 1) 0%, rgba(81, 156, 245, 1) 100%);";
+
     const textAre = document.createElement("textarea");
     // textAre.textContent = "Insert Variable names here";
     textAre.setAttribute('rows', '10');
     textAre.setAttribute('cols', '40');
     textAre.setAttribute('placeholder', 'Enter variable names here');
+    textAre.style.background = "transparent";
+    textAre.style.fontSize = "1.2rem"
+        // textAre.placeholder.style.color = "white";
+
+    textAre.style.color = "white"
+
     bodyElement.append(textAre);
     const btnElement = document.createElement("button");
     btnElement.textContent = "click";
@@ -31,26 +41,40 @@
     bodyElement.appendChild(btnElement);
 
     function toCamelCase(text) {
+        text = text.toLowerCase();
         const i = text.indexOf('_');
         // text = text.substring(0) + text.charAt(i + 1).toUpperCase() + text.substring(i + 2);
         text = text.slice(0, i) + text.charAt(i + 1).toUpperCase() + text.slice(i + 2);
         text = text.replace('_', '');
         return text;
     }
+    const printEmoji = (time) => {
+        let str = "";
+        for (let i = 0; i < time + 1; i++) {
+            str += "✅"
+        }
+        return str;
+    }
     const output = document.createElement("div");
     // output.style.setAttribute('height', '500px');
     // output.style.setAttribute('width', '500px');
-    // output.style.setAttribute('backgroundColor', 'red');
+    output.style.color = 'white';
     bodyElement.appendChild(output);
     console.log(output);
 
+
     btnElement.addEventListener('click', function() {
         let varValue = textAre.value;
+
         // const i = varValue.indexOf('_');
         // varValue.toUpperCase(i + 1);
         // varValue.replace('_', '');
         // output.innerHTML += varValue;
-        output.innerHTML += `${toCamelCase(varValue)}<br>`;
+        let varVal = varValue.split(/\r?\n/);
+        varVal.forEach((element, index) => {
+            output.innerHTML += `${toCamelCase(element)} &emsp; ${printEmoji(index)} <br>`;
+        });
+
         // console.log(toCamelCase(varValue));
 
     })
