@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'use stict'
+
+    class CarCl {
+        constructor(make, speed) {
+            this.make = make;
+            this.speed = speed;
+        }
+        accelerate() {
+            this.speed += 10;
+            console.log(this.speed);
+        }
+        brake() {
+            this.speed -= 5;
+            console.log(this.speed);
+        }
+
+        get speedUS() {
+            return this.speed / 1.6;
+        }
+
+        set speedUS(speed) {
+            this.speed = speed * 1.6;
+        }
+
+    }
+    let car1 = new CarCl("Ford", 120);
+    console.log(car1.make);
+    car1.speedUS = 50;
+    car1.accelerate();
+    car1.brake();
+    car1.brake();
+    car1.brake();
+    car1.brake();
+    car1.brake();
+    console.log(car1.speedUS);
+</script>
+
+</html>

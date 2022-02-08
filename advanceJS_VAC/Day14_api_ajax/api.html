@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="cars">Choose a country:</label>
+
+    <select class="selectClass" id="cars">
+      <option value="volvo">Volvo</option>
+     
+    </select>
+
+</body>
+<script>
+    'use strict'
+    // const selectbox = document.querySelector(".selectClass");
+
+    fetch(`https://restcountries.com/v3.1/all`)
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            console.log(data[0].name.common);
+        });
+    // const callAllCountryAPI = function() {
+    //     const httpReq = new XMLHttpRequest();
+    //     httpReq.open("GET", `https://restcountries.com/v3.1/all`)
+    //     httpReq.send();
+
+    //     console.log(httpReq.responseText);
+    //     httpReq.addEventListener('load', function() {
+    //         // console.log(this.responseText);
+    //         const data = JSON.parse(this.responseText);
+    //         // console.log(data);
+    //         data.forEach(element => {
+    //             // console.log(element);
+    //         })
+    //     })
+    // };
+    // callAllCountryAPI();
+
+
+    // //First AJAX Call
+
+    // const callCountryAPI = function(country) {
+    // const httpReq = new XMLHttpRequest();
+    // httpReq.open("GET", `https://restcountries.com/v3.1/name/${country}`, true)
+    // httpReq.send();
+
+    // console.log(httpReq.responseText);
+    // httpReq.addEventListener('load', function() {
+    //     console.log(this.responseText);
+    //     const [data] = JSON.parse(this.responseText);
+    //     // console.log(data);
+    // })
+    // };
+
+
+    // callCountryAPI('india');
+
+    // callBack hell
+    // setTimeout(function() {
+    //     console.log("1 sec")
+    //     setTimeout(() => {
+    //         console.log("2 sec")
+    //         setTimeout(() => {
+    //             console.log("3 sec")
+    //         }, 1000)
+    //     }, 1000)
+    // }, 1000);
+</script>
+
+</html>

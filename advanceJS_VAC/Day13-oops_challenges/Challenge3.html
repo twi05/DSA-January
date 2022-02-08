@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    'use stict'
+
+    class Car {
+        constructor(make, speed) {
+            this.make = make;
+            this.speed = speed;
+
+        }
+        accelerate() {
+            this.speed += 10;
+            console.log(this.speed);
+        }
+        brake() {
+            this.speed -= 5;
+            console.log(this.speed);
+        }
+
+        get speedUS() {
+            return this.speed / 1.6;
+        }
+
+        set speedUS(speed) {
+            this.speed = speed * 1.6;
+        }
+    }
+
+    class EV extends Car {
+        constructor(make, speed, charge) {
+            super(make, speed);
+            this.charge = charge;
+        }
+        chargeBattery(chargeTo) {
+            this.charge = chargeTo;
+            console.log(`Battery is charged: ${this.charge}%`)
+        }
+        accelerate() {
+            this.speed += 20;
+            this.charge -= 1;
+            console.log(`Tesla is going at${this.speed} km/hr, with a charge of ${this.charge}%`)
+        }
+
+    }
+    let car1 = new EV("Tesla", 120, 23);
+    car1.accelerate();
+    car1.brake();
+    car1.chargeBattery(90);
+</script>
+
+</html>

@@ -24,7 +24,7 @@ public:
         {
             return helper(root);
         }
-        TreeNode * dummy = root;
+        TreeNode* dummy = root;
         while(root!=NULL){
             if(root->val>key){
                 if(root->left!=NULL && root->left->val ==key){

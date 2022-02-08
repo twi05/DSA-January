@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <select class="selectClass"></select>
+    <select class="selectState"></select>
+    <select class="selectCities"></select>
+</body>
+<script>
+    'use strict'
+
+    // const genericPromise = function() {
+    //     return fetch(url).then(res => res.json());
+    // }
+
+    // const countryProm = fetch(`https://restcountries.com/v3.1/name/${country}`).then(res =>res.json()).then(data => {
+
+    // })
+
+    const countryElem = document.querySelector(".primaryCountry");
+    const stateSelect = document.querySelector(".selectState");
+    const selectbox = document.querySelector(".selectClass");
+
+    var headers = new Headers();
+    headers.append("X-CSCAPI-KEY", "dWRVRkFjU1JyMVRyUGZtcFBkeDZaZWsxUW5iRllFYnBPcXBCSVdUMg==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: headers,
+        redirect: 'follow'  
+    };
+
+    const fetchStates = function(selectedCountry) {
+        const stateProm = fetch(`https://api.countrystatecity.in/v1/countries/${selectedCountry}/states`, requestOptions);
+
+        stateProm.then(response => response.json())
+            .then(data => {
+                stateSelect.innerHTML = "";
+                data.forEach(element => {
+                    let htmlStr = `<option>${element.name}</option>`;
+                    stateSelect.innerHTML += htmlStr;
+                });
+            });
+    }
+    selectbox.addEventListener('change', function() {
+        console.log("onchange");
+        const selectedCountry = selectbox.value;
+
+        fetchStates(selectedCountry);
+    });
+    const fetchCountries = function() {
+        const countryProm = fetch(`https://api.countrystatecity.in/v1/countries`, requestOptions);
+
+        countryProm.then(response => response.json())
+            .then(data => {
+                console.log(data);
+                data.forEach(element => {
+                    let htmlStr = `<option>${element.iso2}</option>`;
+                    selectbox.innerHTML += htmlStr;
+                });
+            });
+    }
+    fetchCountries();
+</script>
+
+</html>
